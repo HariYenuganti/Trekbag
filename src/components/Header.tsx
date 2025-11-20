@@ -4,7 +4,6 @@ import { useItemsStore } from './stores/itemsStore';
 
 export default function Header() {
   const items = useItemsStore((state) => state.items);
-  // const { items } = useItemsStore();
   return (
     <header>
       <Logo />
