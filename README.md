@@ -13,6 +13,7 @@ A minimalist packing list application to help you stay organized for your trips.
 ## Tech Stack
 
 - **React**: UI library for building the interface.
+- **TypeScript**: Strongly typed programming language that builds on JavaScript.
 - **Vite**: Fast build tool and development server.
 - **Zustand**: Small, fast, and scalable bearbones state-management solution.
 
