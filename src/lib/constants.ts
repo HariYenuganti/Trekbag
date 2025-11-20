@@ -1,4 +1,10 @@
-export const initialItems = [
+export interface Item {
+  id: number;
+  name: string;
+  packed: boolean;
+}
+
+export const initialItems: Item[] = [
   {
     id: 1,
     name: 'good mood',

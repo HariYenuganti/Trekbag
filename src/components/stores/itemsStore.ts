@@ -1,13 +1,24 @@
 import { create } from 'zustand';
-import { initialItems } from '../../lib/constants';
+import { initialItems, Item } from '../../lib/constants';
 import { persist } from 'zustand/middleware';
 
-export const useItemsStore = create(
+interface ItemsState {
+  items: Item[];
+  addItem: (newItemText: string) => void;
+  deleteItem: (itemId: number) => void;
+  toggleItemPacked: (itemId: number) => void;
+  removeAllItems: () => void;
+  resetToIntitial: () => void;
+  markAllAsComplete: () => void;
+  markAllAsIncomplete: () => void;
+}
+
+export const useItemsStore = create<ItemsState>()(
   persist(
     (set) => ({
       items: initialItems,
       addItem: (newItemText) => {
-        const newItem = {
+        const newItem: Item = {
           id: new Date().getTime(),
           name: newItemText,
           packed: false,

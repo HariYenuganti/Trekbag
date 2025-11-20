@@ -1,21 +1,25 @@
 import { useRef, useState } from 'react';
 import Button from './Button';
 
-export default function AddItemForm({ onAddItem }) {
-  const [itemText, setItemText] = useState('');
-  const inputRef = useRef();
+interface AddItemFormProps {
+  onAddItem: (text: string) => void;
+}
 
-  const handleChange = (e) => {
+export default function AddItemForm({ onAddItem }: AddItemFormProps) {
+  const [itemText, setItemText] = useState('');
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setItemText(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     // Basic validation
     if (!itemText) {
       alert('Item name cannot be empty');
-      inputRef.current.focus();
+      inputRef.current?.focus();
       return;
     }
 
